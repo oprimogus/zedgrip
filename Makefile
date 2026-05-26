@@ -1,3 +1,3 @@
 .PHONY: dev
 dev:
-    cargo run --watch
+	cargo watch -x run

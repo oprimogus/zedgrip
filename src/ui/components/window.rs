@@ -3,15 +3,18 @@ use gpui::{
 };
 
 use crate::ui::components::header::Header;
+use crate::ui::components::sidebar::Sidebar;
 
 pub struct AppWindow {
     pub header: Entity<Header>,
+    pub sidebar: Entity<Sidebar>,
 }
 
 impl AppWindow {
     pub fn new(cx: &mut App) -> Entity<Self> {
         cx.new(|cx| Self {
             header: Header::new(cx),
+            sidebar: Sidebar::new(cx),
         })
     }
 }
@@ -30,6 +33,7 @@ impl Render for AppWindow {
         let border_size = px(1.0);
         let grey = rgb(0x808080);
         let header = self.header.clone();
+        let sidebar = self.sidebar.clone();
 
         window.set_client_inset(shadow_size);
 
@@ -105,6 +109,7 @@ impl Render for AppWindow {
                         cx.stop_propagation();
                     })
                     .child(header)
+                    .child(sidebar)
             )
     }
 }

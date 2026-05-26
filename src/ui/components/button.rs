@@ -82,8 +82,8 @@ impl RenderOnce for WindowButton {
     fn render(self, _window: &mut Window, _cx: &mut App) -> impl IntoElement {
         div()
             .flex()
-            .w(px(46.0))
-            .h(px(46.0))
+            .w(px(28.0))
+            .h(px(24.0))
             .items_center()
             .justify_center()
             .cursor_pointer()
